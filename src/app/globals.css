@@ -1,0 +1,300 @@
+@import 'tailwindcss';
+
+/* ============================================================
+   DESIGN TOKENS
+   ============================================================ */
+:root {
+  /* Colors */
+  --blue:       #1877F2;
+  --blue-dark:  #1565d8;
+  --blue-light: #BBD4FB;
+  --green:      #44A249;
+  --orange:     #E87D2A;
+  --red:        #C60000;
+  --bg:         #FDFDFD;
+  --bg2:        #F2F2F2;
+  --text:       #111111;
+  --gray1:      #6A6A6A;
+  --gray3:      #BDBDBD;
+
+  /* Button sizing */
+  --btn-px:    1.5rem;
+  --btn-py:    0.75rem;
+  --btn-px-lg: 2rem;
+  --btn-py-lg: 1rem;
+  --btn-min-h: 48px;
+  --btn-r:     14px;
+  --btn-gap:   0.5rem;
+}
+
+/* ============================================================
+   RESET
+   ============================================================ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Cairo', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  overflow-x: hidden;
+}
+
+[dir='rtl'] { direction: rtl; text-align: right; }
+[dir='ltr'] { direction: ltr; text-align: left; }
+
+/* ============================================================
+   CONTAINER
+   ============================================================ */
+.container-xl {
+  width: 100%;
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: 2rem;
+}
+@media (max-width: 1024px) {
+  .container-xl { padding-inline: 1.5rem; }
+}
+@media (max-width: 640px) {
+  .container-xl { padding-inline: 1.25rem; }
+}
+
+/* ============================================================
+   TYPOGRAPHY UTILITY
+   ============================================================ */
+.gradient-text {
+  background: linear-gradient(135deg, var(--blue) 0%, #0ea5e9 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ============================================================
+   ANIMATIONS
+   ============================================================ */
+@keyframes float  { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-14px)} }
+@keyframes fadeUp { from{opacity:0;transform:translateY(32px)} to{opacity:1;transform:translateY(0)} }
+
+.animate-float  { animation: float  4s ease-in-out infinite; }
+.animate-fadeup { animation: fadeUp .65s ease forwards; }
+
+/* ============================================================
+   HERO BLOB (decorative)
+   ============================================================ */
+.hero-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  opacity: .15;
+  pointer-events: none;
+}
+
+/* ============================================================
+   BUTTON SYSTEM
+   Every button uses .btn as base. Compose with size + variant.
+   ============================================================ */
+
+/* Base */
+.btn {
+  display:         inline-flex;
+  align-items:     center;
+  justify-content: center;
+  gap:             var(--btn-gap);
+  padding-inline:  var(--btn-px);
+  padding-block:   var(--btn-py);
+  min-height:      var(--btn-min-h);
+  border-radius:   var(--btn-r);
+  font-family:     inherit;
+  font-weight:     700;
+  font-size:       1rem;
+  line-height:     1.4;
+  white-space:     nowrap;
+  cursor:          pointer;
+  border:          none;
+  text-decoration: none;
+  transition:      transform .25s, box-shadow .25s, background .2s;
+}
+.btn:active { transform: scale(.96); }
+
+/* Size: Large (hero / download) */
+.btn-lg {
+  padding-inline: var(--btn-px-lg);
+  padding-block:  var(--btn-py-lg);
+  font-size:      1.125rem;
+  min-height:     56px;
+  border-radius:  18px;
+  gap:            0.625rem;
+}
+
+/* Size: Small (navbar) */
+.btn-sm {
+  padding-inline: 1rem;
+  padding-block:  0.5rem;
+  font-size:      0.875rem;
+  min-height:     38px;
+  border-radius:  10px;
+  gap:            0.375rem;
+}
+
+/* Variant: Primary gradient */
+.btn-primary {
+  background: linear-gradient(135deg, #1877F2, #0ea5e9);
+  color:      white;
+  box-shadow: 0 4px 20px rgba(24,119,242,.28);
+}
+.btn-primary:hover {
+  transform:  translateY(-2px);
+  box-shadow: 0 8px 28px rgba(24,119,242,.40);
+}
+
+/* Variant: Solid blue (nav download) */
+.btn-blue {
+  background: #1877F2;
+  color:      white;
+}
+.btn-blue:hover {
+  transform:  translateY(-2px);
+  background: var(--blue-dark);
+}
+
+/* Variant: White on dark (download section) */
+.btn-ghost-white {
+  background: white;
+  color:      var(--blue);
+  box-shadow: 0 4px 20px rgba(0,0,0,.12);
+}
+.btn-ghost-white:hover {
+  transform:  translateY(-2px);
+  box-shadow: 0 8px 28px rgba(0,0,0,.20);
+}
+
+/* Variant: Outline (language toggle) */
+.btn-outline {
+  background: transparent;
+  color:      var(--blue);
+  border:     1.5px solid var(--blue-light);
+}
+.btn-outline:hover { background: #f0f7ff; }
+
+/* ============================================================
+   INFO PILLS
+   ============================================================ */
+.info-pill {
+  display:        inline-flex;
+  align-items:    center;
+  padding-inline: 0.875rem;
+  padding-block:  0.4rem;
+  border-radius:  999px;
+  font-size:      0.8125rem;
+  font-weight:    600;
+  white-space:    nowrap;
+  line-height:    1.4;
+}
+
+/* ============================================================
+   FEATURE CARD
+   ============================================================ */
+.feat-card {
+  background:     white;
+  border-radius:  22px;
+  padding:        2rem;
+  box-shadow:     0 4px 28px rgba(0,0,0,.07);
+  border:         1px solid #f0f0f0;
+  transition:     transform .25s, box-shadow .25s;
+  height:         100%;
+  display:        flex;
+  flex-direction: column;
+}
+.feat-card:hover {
+  transform:  translateY(-8px);
+  box-shadow: 0 16px 48px rgba(24,119,242,.12);
+}
+
+/* ============================================================
+   SECTION SPACING
+   ============================================================ */
+.section-pad {
+  padding-block: 5rem;
+}
+@media (max-width: 768px) {
+  .section-pad { padding-block: 3.5rem; }
+}
+@media (max-width: 640px) {
+  .section-pad { padding-block: 3rem; }
+}
+
+.section-header {
+  text-align:    center;
+  margin-bottom: 4rem;
+}
+.section-header h2 {
+  font-size:     clamp(1.75rem, 4vw, 2.5rem);
+  font-weight:   900;
+  line-height:   1.2;
+  margin-bottom: 1rem;
+}
+.section-header p {
+  font-size:     1.0625rem;
+  font-weight:   500;
+  color:         var(--gray1);
+  max-width:     540px;
+  margin-inline: auto;
+  line-height:   1.7;
+}
+@media (max-width: 640px) {
+  .section-header { margin-bottom: 2.5rem; }
+}
+
+/* ============================================================
+   FAQ
+   ============================================================ */
+.faq-icon { transition: transform .3s; }
+
+/* ============================================================
+   SCROLLBAR
+   ============================================================ */
+::-webkit-scrollbar       { width: 6px; }
+::-webkit-scrollbar-track { background: #f1f1f1; }
+::-webkit-scrollbar-thumb { background: var(--blue-light); border-radius: 3px; }
+
+/* ============================================================
+   SCROLL OFFSET (sticky nav)
+   ============================================================ */
+section[id] { scroll-margin-top: 4.5rem; }
+
+/* ============================================================
+   NAVBAR — RESPONSIVE VISIBILITY
+   We use CSS media queries instead of Tailwind utilities here
+   because Tailwind v4's JIT scanner does not reliably detect
+   utility classes that appear only in conditional JSX branches.
+   ============================================================ */
+
+/* Desktop: hide hamburger button and mobile menu */
+@media (min-width: 768px) {
+  #mobile-menu-btn { display: none !important; }
+  #mobile-menu      { display: none !important; }
+}
+
+/* Mobile: hide desktop-only elements */
+@media (max-width: 767px) {
+  #nav-download-btn    { display: none !important; }
+  #desktop-nav-links   { display: none !important; }
+}
+
+/* ============================================================
+   HERO TITLE
+   Arabic text with diacritics (tanween, shadda, etc.) needs a
+   taller line-height than Latin text at the same font size.
+   1.15 is too tight — bumped to 1.35 to prevent line overlap.
+   ============================================================ */
+#hero h1 {
+  line-height: 1.40;
+}
+
+/* ============================================================
+   RESPONSIVE HELPERS
+   ============================================================ */
+@media (max-width: 640px) {
+  /* Full-width buttons on small mobile for better tap targets */
+  .btn-mobile-full { width: 100%; justify-content: center; }
+}
