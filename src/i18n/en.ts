@@ -1,4 +1,4 @@
-export const en = {
+﻿export const en = {
   dir: 'ltr' as const,
   lang: 'en',
   nav_features: 'Features',
@@ -6,6 +6,8 @@ export const en = {
   nav_how: 'How It Works',
   nav_download: 'Download',
   nav_faq: 'FAQ',
+  nav_video: 'User Guide',
+  nav_support: 'Support',
   nav_download_btn: 'Download App',
   hero_badge: 'Now available for Android',
   hero_title_1: 'Your Medicine,',
@@ -50,6 +52,18 @@ export const en = {
   step3_num: '03',
   step3_title: 'Add Your Medicines',
   step3_desc: 'Enter your medicine details, set dose times, and let the app remind you',
+  // ── User Guide Video ──
+  video_title: 'Watch the User Guide',
+  video_subtitle: 'See exactly how Timely Meds works in under a few minutes',
+  video_unavailable: 'Video not available yet — check back soon!',
+  // ── WhatsApp Section ──
+  whatsapp_badge: 'We\'re here to help',
+  whatsapp_title: 'Need Help? Chat with Us on WhatsApp',
+  whatsapp_subtitle: 'Have a question about the app, installation, or your account? Our support team is ready to assist you directly on WhatsApp.',
+  whatsapp_btn: 'Open WhatsApp Chat',
+  whatsapp_contacts_title: 'Emergency Contacts Feature',
+  whatsapp_contacts_desc: "Inside the app you can save the phone numbers of family members or caregivers. When a dose is missed, the app automatically sends a WhatsApp message to your saved emergency contacts \u2014 so they are always informed about the patient\u0027s medication status.",
+  // ── Download ──
   dl_title: 'Start Your Health Journey Today',
   dl_subtitle: 'Download Timely Meds for free and never miss a dose again',
   dl_btn: 'Download APK',
@@ -72,6 +86,7 @@ export const en = {
     { q: 'Which Android versions are supported?', a: 'The app requires Android 6.0 or newer to work correctly.' },
     { q: 'Do reminders work when the app is closed?', a: 'Yes, the app runs in the background and delivers notifications even when it is closed.' },
     { q: 'Can I add multiple medicines?', a: 'Absolutely. You can add an unlimited number of medicines, each with its own custom schedule.' },
+    { q: 'What are Emergency Contacts?', a: 'You can save family members or caregivers phone numbers in the app. They can be called directly from the app whenever you need assistance.' },
   ],
   footer_desc: 'Your daily app for managing medicines and staying on track with your treatment',
   footer_rights: 'All rights reserved',
@@ -80,3 +95,7 @@ export const en = {
   footer_terms: 'Terms of Service',
   switch_lang: '\u0639\u0631\u0628\u064a',
 } as const;
+
+
+
+
